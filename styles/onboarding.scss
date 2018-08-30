@@ -49,13 +49,12 @@
 }
 
 .welcome-opt-in {
-    border: green 4px solid !important;
+    border-bottom: green 4px solid !important;
 }
 
 .default-opt-out {
-    border: red 2px solid;
-    border-radius: 6px;
-    text-align: center;
+    border-bottom: red 2px solid;
+    padding-left: 20px;
     padding: 4px;
 }
 
@@ -68,9 +67,12 @@
     text-decoration: underline;
 }
 
+.clickable {
+    cursor: pointer;
+}
+
 .enabled {
     color: green !important;
-    cursor: pointer !important;
 }
 
 .warning {

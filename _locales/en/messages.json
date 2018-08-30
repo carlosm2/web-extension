@@ -116,7 +116,11 @@
     },
 
     "dataReuseButton": {
-        "message": "Join the collective analysis of social network phenomena, please note: people are protected. you, and anyone else"
+        "message": "Join the collective analysis of social network phenomena"
+    },
+
+    "dataReuseButton2": {
+        "message": "Please note: people are protected. you, and anyone else"
     },
 
     "closeAndContinue": {

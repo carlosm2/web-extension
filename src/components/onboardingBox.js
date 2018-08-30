@@ -20,9 +20,13 @@ const OnboardingBox = React.createClass({
                         <a href="https://facebook.tracking.exposed/privacy-statement" target="_blank">privacy statement</a>
                         .
                     </p>
-                    <button className='default-opt-out' id='info-diet-button'>
-                        {t('infoDietButton')}
-                    </button>
+
+                    <div className="clickable">
+                        <span className='default-opt-out' id='info-diet-button'>
+                            {t('infoDietButton')}
+                        </span>
+                        <input type="checkbox" id="info-diet-checkbox" />
+                    </div>
 
                     <p className="fbtrex--opt-in">
                         {t('dataReuseDesc')}
@@ -30,9 +34,15 @@ const OnboardingBox = React.createClass({
                         .
                     </p>
 
-                    <button className='default-opt-out' id='data-reuse-button'>
-                        {t('dataReuseButton')}
-                    </button>
+                    <div className="clickable">
+                        <span className='default-opt-out' id='data-reuse-button'>
+                            {t('dataReuseButton')}
+                            <br/>
+                            {t('dataReuseButton2')}
+                        </span>
+                        <input type="checkbox" id="data-reuse-checkbox" />
+                    </div>
+
 
                     <h2 className="fbtrex--next" id="cc">{t('closeAndContinue')}→</h2>
                     <h2 className="fbtrex--next fbtrex--info" id="ccDesc">{t('optInAtLeast')}</h2>

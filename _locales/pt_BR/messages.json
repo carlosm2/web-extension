@@ -116,7 +116,11 @@
     },
 
     "dataReuseButton": {
-        "message": "Junte-se à análise coletiva dos fenômenos de rede social. Tenha em mente: pessoas estão protegidas. Você e todos os outros."
+        "message": "Junte-se à análise coletiva dos fenômenos de rede social."
+    },
+
+    "dataReuseButton2": {
+        "message": "Tenha em mente: pessoas estão protegidas. Você e todos os outros."
     },
     
     "closeAndContinue": {
