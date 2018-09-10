@@ -1,14 +1,20 @@
 import React from 'react';
 
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import Checkbox from 'material-ui/Checkbox';
+
 import _ from 'lodash';
 import { T, t } from '../i18n';
 
 const OnboardingBox = React.createClass({
 
+                            // onCheck={(_,val) => this.setState(update(state, {settings: {isStudyGroup: {$set: val}}}))} />
+
     render () {
         const publicKey = this.props.publicKey;
 
         return (
+            <MuiThemeProvider>
             <div className='fbtrex--onboarding'>
 
                 <div className='fbtrex--onboarding-box'>
@@ -20,6 +26,14 @@ const OnboardingBox = React.createClass({
                         <a href="https://facebook.tracking.exposed/privacy-statement" target="_blank">privacy statement</a>
                         .
                     </p>
+
+                    <div>
+                        <Checkbox
+                            label={t('infoDietButton')}
+                            labelPosition="left"
+                            checked={false}
+                        />
+                    </div>
 
                     <div className="clickable">
                         <span className='default-opt-out' id='info-diet-button'>
@@ -54,6 +68,7 @@ const OnboardingBox = React.createClass({
                 </div>
 
             </div>
+            </MuiThemeProvider>
         );
     }
 

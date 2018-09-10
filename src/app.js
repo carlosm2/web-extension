@@ -66,7 +66,7 @@ function boot () {
         // `response` contains the user's public key and its status,
         // if the key has just been created, the status is `new`.
         console.log("userLookup responded:", response);
-        if (response.status !== 'accepted' || !response.optin || !response.optin.infoDiet) {
+        if (true || response.status !== 'accepted' || !response.optin || !response.optin.infoDiet) {
             // The optin(s) are missing then we need to onboard the user.
             onboarding(response);
             window.setInterval(() => onboarding(response), 1000);
