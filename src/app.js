@@ -37,6 +37,7 @@ import { scrape, scrapePermalink } from './scrape';
 
 import config from './config';
 import hub from './hub';
+import ux from './ux';
 import { getTimeISO8601 } from './utils';
 import { registerHandlers } from './handlers/index';
 import selector from './selector';
@@ -229,6 +230,7 @@ function onboarding (publicKey) {
     if ($('.fbtrex--onboarding').length)
         return;
 
+    console.log("verify that publicKey is truly the full response", publicKey)
     // The first action is to display the big information box.
     $('body').prepend($(ReactDOMServer.renderToString(
         <OnboardingBox publicKey={publicKey} />
@@ -236,48 +238,7 @@ function onboarding (publicKey) {
 
     // Bind events to the onboarding box (this should not live here but in
     // its own function.
-    $('.fbtrex--onboarding-toggle').on('click', () => {
-        $('.fbtrex--onboarding > div').toggle('fbtrex--hide');
-    });
-
-    $('#info-diet-button').on('click', () => {
-        $('#info-diet-asterisk').addClass('asterisk-selected');
-        $('#info-diet-asterisk').removeClass('asterisk-default');
-        $('#info-diet-checkbox').text('☑');
-        $('#closeContinue').addClass('enabled');
-        $('#closeContinue').removeClass('continue-default');
-    });
-
-/*
-    $('#anomaly-button').on('click', () => {
-        $('#anomaly-checkbox').text('☑');
-    });
-
-   -- the data reuse is not personal, and the researcher agreements
-      needs a dedicated opt-in therefore this is removed             --
-    $('#data-reuse-checkbox').on('click', () => {
-        $('#data-reuse-button').toggleClass('welcome-opt-in');
-        console.log("clicked 1");
-    });
- */
-
-    $('#closeContinue').on('click', () => {
-        if($('#closeContinue').hasClass('enabled')) {
-            $("#closeContinue").text("Saving and refreshing...");
-
-            bo.runtime.sendMessage({
-                type: 'optIn',
-                payload: {
-                    infoDiet: true,
-                    // dataReuse: dataReuse,
-                    userId: config.userId
-                }
-            }, (response => {
-                window.location.reload();
-            }));
-        } 
-    });
-
+    ux.bindOnboardingEvents(publicKey);
 }
 
 // Before booting the app, we need to update the current configuration
